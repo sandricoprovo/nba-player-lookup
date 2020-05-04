@@ -1,1 +1,9 @@
 @charset "utf-8";
+
+// This mixin sets the font to a fluid size using VW and px units with a min, variable and max function
+// @mixin fluidType($ratio, $fontsize) {
+//   $min: $fontsize / $ratio;
+//   $size: $ratio * 5 * 1vw;
+//   $clamp-size: #{"min(max(#{$min}, #{$size}), #{$fontsize})"};
+//   font-size: $clamp-size;
+// }

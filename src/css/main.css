@@ -5,6 +5,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;800&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -341,6 +342,16 @@ template {
   display: none;
 }
 
+:root {
+  --header-1: 48.883px;
+  --header-2: 39.06px;
+  --header-3: 31.25px;
+  --subhead-1: 25px;
+  --subhead-2: 20px;
+  --text: 16px;
+  --text-mini: 12.8px;
+}
+
 .container {
   display: -ms-grid;
   display: grid;
@@ -431,6 +442,15 @@ template {
 
 .container .input__name {
   height: 16vh;
+  font-size: var(--header-3);
+  font-size: clamp(var(--subhead-2), 2vw, var(--header-3));
+}
+
+.container .input__name > input {
+  margin: 16px;
+  height: 32px;
+  padding: 4px;
+  width: calc(32 * 8 * 1px);
 }
 
 .container .tile__player {
@@ -444,6 +464,18 @@ template {
   max-width: 350px;
   height: 50%;
   max-height: 350px;
+}
+
+.container .stat__player-name {
+  font-size: var(--header-3);
+  font-size: clamp(var(--subhead-2), 2vw, var(--header-3));
+}
+
+.container .stat__player-number,
+.container .stat__position,
+.container .stat__team,
+.container .stat__height {
+  font-size: var(--text);
 }
 
 .container .player__stats {
@@ -461,6 +493,15 @@ template {
   text-align: center;
   height: 120px;
   margin: 24px;
+}
+
+.container .stat__name {
+  font-size: var(--subhead-1);
+  font-size: clamp(var(--text), 2vw, var(--subhead-1));
+}
+
+.container .stat__number {
+  font-size: var(--text);
 }
 
 @media screen and (max-width: 600px) {
