@@ -5,7 +5,8 @@
   let searchSubmitBtn = document.querySelector('.form__submitbtn');
   let playerName = document.querySelector('.stat__player-name');
   let playerPosition = document.querySelector('.stat__position');
-  let playerTeam = document.querySelector('.stat__team');
+  let playerTeamName = document.querySelector('.stat__team');
+  let playerTeamLogo = document.querySelector('.player__teamlogo');
   let playerHeight = document.querySelector('.stat__height');
   let currentSeason = document.querySelector('.stat__season');
   let playerPoints = document.querySelector('.stat__points');
@@ -59,15 +60,17 @@
     showPlayerDetails(playerObj); // displays player details to page
   };
 
-  // FUNCTION: 
+  // FUNCTION: This function destructures the playerObj object, and uses its properties to load the player information to the page. 
   let showPlayerDetails = ({ details, stats }) => {
     // Player Information
     playerName.textContent = details.name;
-    playerTeam.textContent = `Team: ${details.team}`;
+    playerTeamName.textContent = `Team: ${details.team}`;
     playerPosition.textContent = `Position: ${details.position}`;
     if (details.height.length > 0) {
       playerHeight.textContent = `Height: ${details.height}`;
     }
+    playerTeamLogo.setAttribute('src', `./src/images/${details.teamAbbr}_LOGO.png`);
+    playerTeamLogo.setAttribute('alt', `The team logo for the ${details.team}.`);
     // Player Stats
     currentSeason.textContent = `${stats.season} Season Per Game Stats`;
     playerPoints.textContent = stats.points;
@@ -81,12 +84,6 @@
     playerFTPct.textContent = stats.ftpct;
   };
 
-
-
-
-
-
-
   // Event Listeners =====================================
   searchSubmitBtn.addEventListener('click', (event) => {
     // prevents the form from submitting and refreshing the page
@@ -97,6 +94,4 @@
     // calling the fetch data function
     fetchPlayerData(playerFirstName.toLowerCase(), playerLastName.toLowerCase(), searchSeason.toLowerCase());
   })
-
-
 })();

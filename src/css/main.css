@@ -499,7 +499,6 @@ template {
 }
 
 .container .tile__player {
-  border: 2px solid black;
   padding: 16px;
 }
 
@@ -522,6 +521,10 @@ template {
   font-size: var(--text);
   font-family: var(--font-family);
   font-weight: var(--fontweight-regular);
+}
+
+.container .player__teamlogo {
+  width: 230px;
 }
 
 .container .player__stats {

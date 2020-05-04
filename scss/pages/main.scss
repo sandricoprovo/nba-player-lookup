@@ -48,7 +48,6 @@
 
   // Player Tile
   .tile__player {
-    border: 2px solid black;
     padding: 16px;
   }
 
@@ -72,6 +71,10 @@
     font-size: var(--text);
     font-family: var(--font-family);
     font-weight: var(--fontweight-regular);
+  }
+
+  .player__teamlogo {
+    width: 230px;
   }
 
   // Player Stats
