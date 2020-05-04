@@ -1,8 +1,8 @@
 (function(){
-  let inputForm = document.querySelector('.form__search')
   let searchedPlayer = document.querySelector('[name="search-name"]');
   let searchedSeason = document.querySelector('[name="search-season"]');
   let searchSubmitBtn = document.querySelector('.form__submitbtn');
+  let toggleThemebtn = document.querySelector('.page__theme-toggle');
   let playerName = document.querySelector('.stat__player-name');
   let playerPosition = document.querySelector('.stat__position');
   let playerTeamName = document.querySelector('.stat__team');
@@ -30,7 +30,12 @@
     const seasonStatsResponse = await fetch(`https://www.balldontlie.io/api/v1/season_averages?season=${season}&player_ids[]=${playerID}`);
     const { data: [ seasonStatsJson ] } = await seasonStatsResponse.json();
 
-    createPlayerObject(detailsJson, seasonStatsJson); // creates player object
+    // makes sure that both datasets are returned
+    if (detailsJson === undefined || seasonStatsJson === undefined) {
+      showErrorPopup();
+    } else {
+      createPlayerObject(detailsJson, seasonStatsJson); // creates player object
+    }
   };
 
   // FUNCTION: This function takes in the playerDetails and season stats objects, and create one object with all of the data that'll be displayed to the page. 
@@ -64,7 +69,7 @@
   let showPlayerDetails = ({ details, stats }) => {
     // Player Information
     playerName.textContent = details.name;
-    playerTeamName.textContent = `Team: ${details.team}`;
+    playerTeamName.textContent = `Current Team: ${details.team}`;
     playerPosition.textContent = `Position: ${details.position}`;
     if (details.height.length > 0) {
       playerHeight.textContent = `Height: ${details.height}`;
@@ -84,7 +89,15 @@
     playerFTPct.textContent = stats.ftpct;
   };
 
+  // FUNCTION: This function shows the error popup if either sets of data return empty
+  let showErrorPopup = () => {
+    let errorPopup = document.querySelector('.search__error-popup');
+    errorPopup.style.display = "block";
+    errorPopup.style.opacity = 1;
+  };
+
   // Event Listeners =====================================
+  // submits the search variables entered by the user
   searchSubmitBtn.addEventListener('click', (event) => {
     // prevents the form from submitting and refreshing the page
     event.preventDefault();
@@ -93,5 +106,21 @@
     const searchSeason = searchedSeason.value;
     // calling the fetch data function
     fetchPlayerData(playerFirstName.toLowerCase(), playerLastName.toLowerCase(), searchSeason.toLowerCase());
+  });
+
+  // Toggles the site color themes
+  toggleThemebtn.addEventListener('click', () => {
+    let contentContainer = document.querySelector('.container');
+    if (contentContainer.dataset.theme !== "default") {
+      contentContainer.dataset.theme = "default";
+    } else {
+      contentContainer.dataset.theme = "dark"
+    }
+  })
+
+  document.querySelector('.error__exit').addEventListener('click', () => {
+    let errorPopup = document.querySelector('.search__error-popup');
+    errorPopup.style.display = "none";
+    errorPopup.style.opacity = 0;
   })
 })();

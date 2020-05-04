@@ -21,27 +21,38 @@
 
 <body>
   <!-- Content -->
-  <main class="container">
+  <main class="container" data-theme="default">
+    <div class="search__error-popup">
+      <h3 class="error__title">Sorry, but an error occured 🤕.</h3>
+      <p class="error__subhead">Error Message:</p>
+      <p class="error__message">This can happen when the programs attemp to
+        collect the player data fails. Also, this can happen when you search for
+        a player for a particular season, but that player has no data for that
+        season due to no player any games.</p>
+      <button class="error__exit">X</button>
+    </div>
+    <header class="page__header">
+      <h1 class="page__title">NBA Player Lookup</h1>
+      <button class="page__theme-toggle">Change Theme</button>
+    </header>
     <!-- Form Inputs -->
     <form class="form__search" action="">
       <label class="form__input" for="search-name">
         Full Name:
-        <input type="text" name="search-name" placeholder="ex: Lebron James"
-          value="Kyle Lowry">
+        <input type="text" name="search-name" placeholder="ex: Lebron James">
       </label>
       <label class="form__input" for="search-season">
         Season Year:
-        <input type="text" name="search-season" placeholder="ex: 2019"
-          value="2019">
+        <input type="text" name="search-season" placeholder="ex: 2019">
       </label>
       <button class="form__submitbtn" type="submit">Search</button>
     </form>
     <!-- Main Player Info -->
     <div class="tile__player">
       <div class="player__details">
-        <h3 class="stat__player-name">Kyle Lowry</h3>
-        <p class="stat__team">Team: Toronto Raptors</p>
-        <p class="stat__position">Position: G</p>
+        <h3 class="stat__player-name">Player Name</h3>
+        <p class="stat__team">Current Team: N/A</p>
+        <p class="stat__position">Position: N/A</p>
         <p class="stat__height">Height: N/A</p>
         <img class="player__teamlogo" src="" alt="">
       </div>

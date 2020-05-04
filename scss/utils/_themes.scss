@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+// Color Schemes ==========================
+[data-theme="default"] {
+  --color-error: rgba(239, 71, 111, 1);
+  --color-warn: rgba(255, 209, 102, 1);
+  --color-success: rgba(6, 214, 160, 1);
+  --color-bg: rgba(252, 252, 252, 1);
+  --color-white: rgba(252, 252, 252, 1);
+  --color-black: rgba(34, 24, 28, 1);
+  --color-headertext: rgba(34, 24, 28, 0.9);
+  --color-bodytext: rgba(34, 24, 28, 0.7);
+  --color-main: rgba(52, 84, 209, 1);
+  --boxshadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --boxshadow-hover: 0 7px 14px rgba(50, 50, 93, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+  --color-error: rgba(239, 71, 111, 1);
+  --color-warn: rgba(255, 209, 102, 1);
+  --color-success: rgba(6, 214, 160, 1);
+  --color-bg: rgba(34, 24, 28, 1);
+  --color-white: rgba(252, 252, 252, 1);
+  --color-black: rgba(34, 24, 28, 1);
+  --color-headertext: rgba(252, 252, 252, 1);
+  --color-bodytext: rgba(252, 252, 252, 1);
+  --color-main: rgba(52, 84, 209, 1);
+  --boxshadow: none;
+  --boxshadow-hover: 0 7px 14px rgba(252, 252, 252, 1),
+    0 3px 6px rgba(252, 252, 252, 1);
+}

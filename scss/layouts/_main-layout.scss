@@ -8,6 +8,15 @@
   align-content: center;
 }
 
+// Header {
+.page__header {
+  grid-column: 1 / span 4;
+  display: flexbox;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 // Inputs
 .form__search {
   display: flex;

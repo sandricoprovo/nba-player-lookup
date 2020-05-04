@@ -4,12 +4,123 @@
 @import "../utils/normalizecss";
 @import "../utils/system";
 @import "../utils/mixins";
+@import "../utils/themes";
 @import "../layouts/main-layout";
 
 /* Page Styles */
 .container {
   width: 100vw;
   min-height: 100vh;
+  background-color: var(--color-bg);
+  transition: background-color 0.4s ease-in;
+
+  .search__error-popup {
+    display: none;
+    opacity: 0;
+    letter-spacing: var(--letter-space);
+    font-size: var(--text);
+    font-family: var(--font-family);
+    font-weight: var(--fontweight-regular);
+    border: 0.5px solid var(--color-main);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    width: 300px;
+    background-color: var(--color-bg);
+    box-shadow: var(--boxshadow);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .error__title {
+    color: var(--color-bodytext);
+  }
+
+  .error__subhead {
+    font-size: var(--text-mini);
+    color: var(--color-bodytext);
+    margin: 4px 0px;
+  }
+
+  .error__message {
+    font-size: var(--text);
+    color: var(--color-bodytext);
+    margin: 8px 0px 16px 0px;
+  }
+
+  .error__exit {
+    letter-spacing: var(--letter-space);
+    font-size: var(--text);
+    font-family: var(--font-family);
+    font-weight: var(--fontweight-regular);
+    border-radius: var(--border-radius);
+    background-color: var(--color-bg);
+    display: inline-block;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    box-shadow: var(--boxshadow);
+    color: var(--color-main);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--boxshadow-hover);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .page__header {
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .page__title {
+    color: var(--color-headertext);
+    font-size: var(--header-3);
+    letter-spacing: var(--letter-space);
+    font-size: clamp(var(--subhead-2), 2vw, var(--header-3));
+    font-family: var(--font-family);
+    font-weight: var(--fontweight-exbold);
+  }
+
+  .page__theme-toggle {
+    letter-spacing: var(--letter-space);
+    font-size: var(--text);
+    font-family: var(--font-family);
+    font-weight: var(--fontweight-regular);
+    border-radius: var(--border-radius);
+    background-color: var(--color-bg);
+    display: inline-block;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    box-shadow: var(--boxshadow);
+    color: var(--color-bodytext);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--boxshadow-hover);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
 
   // Form Elements
   .form__search {
@@ -21,8 +132,10 @@
   }
 
   .form__input {
+    color: var(--color-headertext);
     width: 32%;
     min-width: 300px;
+    letter-spacing: var(--letter-space);
   }
 
   .form__input > input {
@@ -31,19 +144,48 @@
     padding: 4px;
     width: 50%;
     min-width: 200px;
+    letter-spacing: var(--letter-space);
+    color: var(--color-bodytext);
+    background-color: var(--color-bg);
+    caret-color: var(--color-main);
     font-size: var(--text);
     font-family: var(--font-family);
     font-weight: var(--fontweight-regular);
     border-radius: var(--border-radius);
-    border: 1px solid black;
+    border: 1px solid var(--color-bodytext);
+    transition: border 0.2s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--color-main);
+    }
   }
 
   .form__submitbtn {
+    letter-spacing: var(--letter-space);
     font-size: var(--text);
     font-family: var(--font-family);
     font-weight: var(--fontweight-regular);
-    padding: 12px 32px;
     border-radius: var(--border-radius);
+    background-color: var(--color-bg);
+    display: inline-block;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    box-shadow: var(--boxshadow);
+    color: var(--color-bodytext);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--boxshadow-hover);
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   // Player Tile
@@ -55,38 +197,47 @@
   .player__details {
     min-width: 300px;
     width: 30%;
+    padding-bottom: 24px;
     max-width: 350px;
+    box-shadow: var(--boxshadow);
+    transition: all 0.3s ease;
   }
 
   .stat__player-name {
+    color: var(--color-headertext);
     font-size: var(--header-3);
+    letter-spacing: var(--letter-space);
     font-size: clamp(var(--subhead-2), 2vw, var(--header-3));
     font-family: var(--font-family);
     font-weight: var(--fontweight-exbold);
+    transition: all 0.3s ease;
   }
 
   .stat__position,
   .stat__team,
   .stat__height {
+    letter-spacing: var(--letter-space);
+    color: var(--color-bodytext);
     font-size: var(--text);
     font-family: var(--font-family);
     font-weight: var(--fontweight-regular);
   }
 
   .player__teamlogo {
-    width: 230px;
+    width: 120px;
   }
 
   // Player Stats
   .player__stats {
-    border: 2px solid black;
     width: 50%;
     border-radius: var(--border-radius);
   }
 
   .stat__season {
     width: 100%;
+    color: var(--color-headertext);
     text-align: center;
+    letter-spacing: var(--letter-space);
     font-size: var(--subhead-1);
     font-size: clamp(var(--subhead-2), 2vw, var(--subhead-1));
     font-family: var(--font-family);
@@ -97,18 +248,28 @@
     width: 104px;
     text-align: center;
     margin: 24px;
-    border: 2px solid black;
     padding: 8px;
     border-radius: var(--border-radius);
+    box-shadow: var(--boxshadow);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--boxshadow-hover);
+    }
   }
 
   .stat__name {
+    letter-spacing: var(--letter-space);
+    color: var(--color-headertext);
     font-size: var(--text);
     font-family: var(--font-family);
     font-weight: var(--fontweight-exbold);
   }
 
   .stat__number {
+    letter-spacing: var(--letter-space);
+    color: var(--color-bodytext);
     font-style: italic;
     font-size: var(--text);
     font-family: var(--font-family);
