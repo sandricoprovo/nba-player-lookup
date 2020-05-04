@@ -350,6 +350,9 @@ template {
   --subhead-2: 20px;
   --text: 16px;
   --text-mini: 12.8px;
+  --font-family: "Jost", sans-serif;
+  --fontweight-regular: 400;
+  --fontweight-exbold: 800;
 }
 
 .container {
@@ -442,8 +445,10 @@ template {
 
 .container .input__name {
   height: 16vh;
-  font-size: var(--header-3);
-  font-size: clamp(var(--subhead-2), 2vw, var(--header-3));
+  font-size: var(--subhead-1);
+  font-size: clamp(var(--subhead-2), 2vw, var(--subhead-1));
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-regular);
 }
 
 .container .input__name > input {
@@ -451,6 +456,9 @@ template {
   height: 32px;
   padding: 4px;
   width: calc(32 * 8 * 1px);
+  font-size: var(--text);
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-regular);
 }
 
 .container .tile__player {
@@ -469,6 +477,8 @@ template {
 .container .stat__player-name {
   font-size: var(--header-3);
   font-size: clamp(var(--subhead-2), 2vw, var(--header-3));
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-exbold);
 }
 
 .container .stat__player-number,
@@ -476,6 +486,8 @@ template {
 .container .stat__team,
 .container .stat__height {
   font-size: var(--text);
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-regular);
 }
 
 .container .player__stats {
@@ -486,6 +498,10 @@ template {
 .container .stat__season {
   width: 100%;
   text-align: center;
+  font-size: var(--subhead-1);
+  font-size: clamp(var(--subhead-2), 2vw, var(--subhead-1));
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-exbold);
 }
 
 .container .stat__card {
@@ -498,10 +514,15 @@ template {
 .container .stat__name {
   font-size: var(--subhead-1);
   font-size: clamp(var(--text), 2vw, var(--subhead-1));
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-regular);
+  font-style: italic;
 }
 
 .container .stat__number {
   font-size: var(--text);
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-regular);
 }
 
 @media screen and (max-width: 650px) {
