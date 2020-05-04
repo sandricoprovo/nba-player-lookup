@@ -9,8 +9,9 @@
 }
 
 // Inputs
-.input__name {
+.form__search {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -43,7 +44,16 @@
 
 // Media Queries
 @media screen and (min-width: 600px) {
-  .input__name {
+  .form__search {
     grid-column: 1 / span 4;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form__search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

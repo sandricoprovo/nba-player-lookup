@@ -353,6 +353,7 @@ template {
   --font-family: "Jost", sans-serif;
   --fontweight-regular: 400;
   --fontweight-exbold: 800;
+  --border-radius: 10px;
 }
 
 .container {
@@ -367,10 +368,12 @@ template {
       align-content: center;
 }
 
-.input__name {
+.form__search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -430,10 +433,28 @@ template {
 }
 
 @media screen and (min-width: 600px) {
-  .input__name {
+  .form__search {
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
     grid-column: 1 / span 4;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form__search {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -443,22 +464,38 @@ template {
   min-height: 100vh;
 }
 
-.container .input__name {
-  height: 16vh;
+.container .form__search {
+  padding: 24px 0px;
   font-size: var(--subhead-1);
   font-size: clamp(var(--subhead-2), 2vw, var(--subhead-1));
   font-family: var(--font-family);
   font-weight: var(--fontweight-regular);
 }
 
-.container .input__name > input {
+.container .form__input {
+  width: 32%;
+  min-width: 300px;
+}
+
+.container .form__input > input {
   margin: 16px;
   height: 32px;
   padding: 4px;
-  width: calc(32 * 8 * 1px);
+  width: 50%;
+  min-width: 200px;
   font-size: var(--text);
   font-family: var(--font-family);
   font-weight: var(--fontweight-regular);
+  border-radius: var(--border-radius);
+  border: 1px solid black;
+}
+
+.container .form__submitbtn {
+  font-size: var(--text);
+  font-family: var(--font-family);
+  font-weight: var(--fontweight-regular);
+  padding: 12px 32px;
+  border-radius: var(--border-radius);
 }
 
 .container .tile__player {
@@ -470,8 +507,6 @@ template {
   min-width: 300px;
   width: 30%;
   max-width: 350px;
-  height: 50%;
-  max-height: 350px;
 }
 
 .container .stat__player-name {
@@ -493,6 +528,7 @@ template {
 .container .player__stats {
   border: 2px solid black;
   width: 50%;
+  border-radius: var(--border-radius);
 }
 
 .container .stat__season {
@@ -507,15 +543,16 @@ template {
 .container .stat__card {
   width: 104px;
   text-align: center;
-  height: 120px;
   margin: 24px;
+  border: 2px solid black;
+  padding: 8px;
+  border-radius: var(--border-radius);
 }
 
 .container .stat__name {
-  font-size: var(--subhead-1);
-  font-size: clamp(var(--text), 2vw, var(--subhead-1));
+  font-size: var(--text);
   font-family: var(--font-family);
-  font-weight: var(--fontweight-regular);
+  font-weight: var(--fontweight-exbold);
   font-style: italic;
 }
 
@@ -526,6 +563,9 @@ template {
 }
 
 @media screen and (max-width: 650px) {
+  .form__search {
+    text-align: center;
+  }
   .container .player__stats {
     width: 100%;
   }

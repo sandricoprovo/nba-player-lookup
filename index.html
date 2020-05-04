@@ -22,10 +22,18 @@
 <body>
   <!-- Content -->
   <main class="container">
-    <label class="input__name" for="player-name">
-      Enter the Players name here:
-      <input type="text" name="player-name">
-    </label>
+    <!-- Form Inputs -->
+    <form class="form__search" action="">
+      <label class="form__input" for="search-name">
+        Player Name:
+        <input type="text" name="search-name" placeholder="ex: Lebron James">
+      </label>
+      <label class="form__input" for="search-season">
+        Season Year:
+        <input type="text" name="search-season" placeholder="ex: 2019">
+      </label>
+      <button class="form__submitbtn" type="submit">Search</button>
+    </form>
     <!-- Main Player Info -->
     <div class="tile__player">
       <div class="player__details">
@@ -56,7 +64,7 @@
         <!-- Steals -->
         <div class="stat__card">
           <h3 class="stat__name">Steals</h3>
-          <p class="stat__number stat__steal">0</p>
+          <p class="stat__number stat__steals">0</p>
         </div>
         <!-- Blocks -->
         <div class="stat__card">

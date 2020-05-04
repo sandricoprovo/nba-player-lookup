@@ -5,6 +5,11 @@
 
 // === === === ROOT === === === //
 :root {
+  // Color
+  [data-theme="default"] {
+  }
+  [data-theme="dark"] {
+  }
   // Type Scale
   --header-1: 48.883px;
   --header-2: 39.06px;
@@ -16,7 +21,6 @@
   --font-family: "Jost", sans-serif;
   --fontweight-regular: 400;
   --fontweight-exbold: 800;
-  // Color
-  // [data-theme="default"]{}
-  // [data-theme="dark"]{}
+  // Other variables
+  --border-radius: 10px;
 }
