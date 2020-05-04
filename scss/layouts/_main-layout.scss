@@ -1,1 +1,49 @@
 @charset "UTF-8";
+
+// Super Grid
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
+  align-content: center;
+}
+
+// Inputs
+.input__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Player Tile
+.tile__player {
+  grid-column: 1 / span 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+//  Player Information
+.player__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// Player Stats
+.player__stats {
+  grid-column: 3 / span 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+// Media Queries
+@media screen and (min-width: 600px) {
+  .input__name {
+    grid-column: 1 / span 4;
+  }
+}
