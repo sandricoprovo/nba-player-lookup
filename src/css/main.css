@@ -516,7 +516,6 @@ template {
   font-weight: var(--fontweight-exbold);
 }
 
-.container .stat__player-number,
 .container .stat__position,
 .container .stat__team,
 .container .stat__height {
@@ -553,10 +552,10 @@ template {
   font-size: var(--text);
   font-family: var(--font-family);
   font-weight: var(--fontweight-exbold);
-  font-style: italic;
 }
 
 .container .stat__number {
+  font-style: italic;
   font-size: var(--text);
   font-family: var(--font-family);
   font-weight: var(--fontweight-regular);
